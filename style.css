@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cell {
+    background-color: red;
+    height: 115px;
+    width: 115px;
+}
+
+.hover {
+    background-color: blue;
+}
+
+
