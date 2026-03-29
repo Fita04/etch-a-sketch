@@ -1,4 +1,5 @@
 const container =  document.querySelector(".container");
+const body = document.querySelector("body");
 let square; 
 
 for (let i = 1; i <= 256; i++) {
@@ -23,3 +24,12 @@ cells.forEach((cells) => {
     cells.addEventListener("mouseenter", cursorHover);
     cells.addEventListener("mouseleave", cursorExit);
 })
+
+const buttons = document.querySelector("button");
+
+const getRidOfGrid = function () {
+    body.removeChild(container);
+}
+
+buttons.addEventListener("click", getRidOfGrid);
+
