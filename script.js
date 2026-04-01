@@ -19,15 +19,8 @@ const cursorHover = (event) => {
     event.target.classList.add("hover");
 }
 
-
-const cursorExit = (event) => {
-    event.target.classList.remove("hover");        
-}
-
-
 cells.forEach((cells) => {
     cells.addEventListener("mouseenter", cursorHover);
-    cells.addEventListener("mouseleave", cursorExit);
 })
 
 const buttons = document.querySelector("button");
@@ -37,6 +30,12 @@ const getRidOfGrid = function () {
 }
 
 const makeNewGrid = function () {
+    let userInput = parseInt(prompt("Input a number less than 100"));
+
+
+    if (userInput >= 100 || userInput == "" || userInput == null || !Number.isInteger(parseInt(userInput))) {   
+        return; 
+    }   else if (userInput <= 100) { 
     getRidOfGrid;
     
     container = document.createElement("div");
@@ -45,33 +44,21 @@ const makeNewGrid = function () {
     container.style.maxWidth = "1600px";
     document.body.appendChild(container);
 
-    let userInput = prompt("Input a number less than 100");
-
-    while (userInput >= 100) {
-        userInput = prompt("Input a number less than 100");
-    }
-
     let numberOfSquares = userInput * userInput
 
     for (let i = 1; i <= numberOfSquares; i++) {
     square = document.createElement("div");
     square.className = "cell";
-
-    let squareHeight = parseInt(containerHeight) / userInput; 
-    square.style.height = `${squareHeight}px`;
-
-
-    let squareWidth = parseInt(containerWidth) / userInput; 
-    square.style.width = `${squareWidth}px`;
-
+    let squareHeight =square.style.height = parseInt(containerHeight) / userInput; 
     container.appendChild(square);
     }
 
     cells = document.querySelectorAll(".cell");
     cells.forEach((cells) => {
     cells.addEventListener("mouseenter", cursorHover);
-    cells.addEventListener("mouseleave", cursorExit);
     })
+    
+   }
         
 }
 
