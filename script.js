@@ -33,7 +33,7 @@ const makeNewGrid = function () {
     let userInput = parseInt(prompt("Input a number less than 100"));
 
 
-    if (userInput >= 100 || userInput == "" || userInput == null || !Number.isInteger(parseInt(userInput))) {   
+    if (userInput >= 100 || userInput == "" || userInput == null || !Number.isInteger(userInput)) {   
         return; 
     }   else if (userInput <= 100) { 
     getRidOfGrid;
