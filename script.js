@@ -25,9 +25,6 @@ cells.forEach((cells) => {
 
 const buttons = document.querySelector("button");
 
-const getRidOfGrid = function () {
-    body.removeChild(container);
-}
 
 const makeNewGrid = function () {
     let userInput = parseInt(prompt("Input a number less than 100"));
@@ -36,7 +33,7 @@ const makeNewGrid = function () {
     if (userInput >= 100 || userInput == "" || userInput == null || !Number.isInteger(userInput)) {   
         return; 
     }   else if (userInput <= 100) { 
-    getRidOfGrid;
+    body.removeChild(container);
     
     container = document.createElement("div");
     container.className = "container";
