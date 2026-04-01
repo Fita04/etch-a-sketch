@@ -1,16 +1,19 @@
 let container =  document.querySelector(".container");
+let containerHeight = container.style.maxHeight = "1600px"; 
+let containerWidth = container.style.maxWidth = "1600px";
+
 let body = document.querySelector("body");
 let square; 
 
 for (let i = 1; i <= 256; i++) {
     square = document.createElement("div");
     square.className = "cell";
-    square.id = i;
     container.appendChild(square);
 }
 
 
 let cells = document.querySelectorAll(".cell");
+
 
 const cursorHover = (event) => {
     event.target.classList.add("hover");
@@ -38,6 +41,8 @@ const makeNewGrid = function () {
     
     container = document.createElement("div");
     container.className = "container";
+    container.style.maxHeight = "1600px"; 
+    container.style.maxWidth = "1600px";
     document.body.appendChild(container);
 
     let userInput = prompt("Input a number less than 100");
@@ -51,7 +56,14 @@ const makeNewGrid = function () {
     for (let i = 1; i <= numberOfSquares; i++) {
     square = document.createElement("div");
     square.className = "cell";
-    square.id = i;
+
+    let squareHeight = parseInt(containerHeight) / userInput; 
+    square.style.height = `${squareHeight}px`;
+
+
+    let squareWidth = parseInt(containerWidth) / userInput; 
+    square.style.width = `${squareWidth}px`;
+
     container.appendChild(square);
     }
 
@@ -61,9 +73,7 @@ const makeNewGrid = function () {
     cells.addEventListener("mouseleave", cursorExit);
     })
         
-    }
-
-
+}
 
 buttons.addEventListener("click", makeNewGrid);
 
