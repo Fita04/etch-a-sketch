@@ -9,7 +9,7 @@ for (let i = 1; i <= 256; i++) {
     square = document.createElement("div");
     square.className = "cell";
     container.appendChild(square);
-}
+}   
 
 
 let cells = document.querySelectorAll(".cell");
@@ -46,18 +46,22 @@ const makeNewGrid = function () {
     for (let i = 1; i <= numberOfSquares; i++) {
     square = document.createElement("div");
     square.className = "cell";
-    let squareHeight =square.style.height = parseInt(containerHeight) / userInput; 
-    container.appendChild(square);
+    let squareHeight = parseInt(containerHeight) / userInput; 
+    square.style.height = `${squareHeight}px`;
+
+
+    let squareWidth = parseInt(containerWidth) / userInput; 
+    square.style.width = `${squareWidth}px`;
+    
+     container.appendChild(square);
+    }
     }
 
     cells = document.querySelectorAll(".cell");
     cells.forEach((cells) => {
     cells.addEventListener("mouseenter", cursorHover);
     })
-    
    }
-        
-}
+
 
 buttons.addEventListener("click", makeNewGrid);
-
